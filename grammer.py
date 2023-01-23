@@ -40,7 +40,14 @@ SHADDA = u'\u0651'
 SUKUN = u'\u0652'
 
 # الكلمات
+f = open("names.txt","r")
+scanner = f.read().split()
+adjective = [*set(scanner)]
+#r = "\n"
+#out = r.join(adjective)
+#f = open("names.txt", "a")
+#f.write(out)
+#f.close()
 verb = ["اكل","ذهب"]
-adjective = ["سلطان","عمر","احمد"]
 objects = ["الماء","التفاح","البرتقال"]
 noun = ["بارد", "لذيذ" , "صادق"]
