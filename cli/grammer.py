@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # omer khan 391007603
 # sultan fahad 391002603
 
@@ -40,14 +42,15 @@ SHADDA = u'\u0651'
 SUKUN = u'\u0652'
 
 # الكلمات
-f = open("names.txt","r")
+f = open("words\names.txt","r")
 scanner = f.read().split()
-adjective = [*set(scanner)]
-#r = "\n"
-#out = r.join(adjective)
-#f = open("names.txt", "a")
-#f.write(out)
-#f.close()
-verb = ["اكل","ذهب"]
-objects = ["الماء","التفاح","البرتقال"]
-noun = ["بارد", "لذيذ" , "صادق"]
+name_human = [*set(scanner)]
+f = open("words\verb.txt","r")
+scanner = f.read().split()
+verb = [*set(scanner)]
+f = open("words\name_object.txt","r")
+scanner = f.read().split()
+name_object = [*set(scanner)]
+f = open("words\noun.txt","r")
+scanner = f.read().split()
+noun = [*set(scanner)]
