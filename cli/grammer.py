@@ -42,15 +42,15 @@ SHADDA = u'\u0651'
 SUKUN = u'\u0652'
 
 # الكلمات
-f = open("words\names.txt","r")
+f = open("words/names.txt","r")
 scanner = f.read().split()
 name_human = [*set(scanner)]
-f = open("words\verb.txt","r")
+f = open("words/verb.txt","r")
 scanner = f.read().split()
 verb = [*set(scanner)]
-f = open("words\name_object.txt","r")
+f = open("words/name_object.txt","r")
 scanner = f.read().split()
 name_object = [*set(scanner)]
-f = open("words\noun.txt","r")
+f = open("words/noun.txt","r")
 scanner = f.read().split()
 noun = [*set(scanner)]
