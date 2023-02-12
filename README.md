@@ -5,7 +5,8 @@ Here we will show how to use our project
  
  **[How to use cli ](#cli)**
 ***
-1. Setup project env: 
+1. Setup project env:
+ 
 open your terminal, then do the following steps
 
 `git clone https://github.com/omerk42/compilerPR.git`
@@ -50,4 +51,23 @@ then you will find text file with result in to download
 
 ## CLI
 
-`cd compilerPR/gui`
+1. open cli folder
+`cd compilerPR/cli`
+
+2. run the app
+
+`python3 app.py`
+
+if the user run the programe without argument then the programe will use the defult text file (test.txt)
+or the user can use another text file
+
+`python3 app.py <text file dir>`
+
+3. use the app
+then program will show two option
+
+(1) put tashkel on text
+
+(2) check if tashkel is correct
+
+then the programe is self explained 
