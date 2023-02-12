@@ -11,6 +11,12 @@ from grammer import *
 
 from pyarabic.araby import strip_tashkeel
 
+
+# =====================================================================================
+# ======================== functions ================================================== 
+# =====================================================================================
+
+
 def shkl(text):
     token = []
     result = []
@@ -95,6 +101,27 @@ def shkl(text):
     return parser,token,result    
 
 
+def checkTshkel(text):
+    mshktxt = text.split()
+    nontxt = strip_tashkeel(text)
+    parser,token,result = shkl(nontxt)
+    error=[]
+    for i in range(len(mshktxt)):
+        if result[i] != mshktxt[i]:
+            error.append(mshktxt[i]+ " تشكيل خاطئ")
+            error.append(" التشكيل الصحيح هو " + result[i])
+            error.append("\n")
+    if len(error) == 0:
+        error.append("لا يوجد خطأ")
+    print(mshktxt)
+    print(result)
+    r = ""            
+    print("errors: \n  {}".format(r.join(error)))
+
+
+# =====================================================================================
+# ======================== cli ======================================================== 
+# =====================================================================================
 
 loop = True
 while loop == True:
@@ -162,11 +189,10 @@ while loop == True:
                 if len(sys.argv) > 1:
                     f = open(sys.argv[1], 'r')
                     scanner = f.read()
-                    nontxt = strip_tashkeel(scanner)
-                    parser,token,result = shkl(scanner)
+                    checkTshkel(scanner)        
                 else:                
                     f = open("test.txt","r") # put file name here
                     scanner = f.read()
-                    parser,token,result = shkl(scanner)    
+                    checkTshkel(scanner)    
             except Exception as ex:
                 print(ex)
