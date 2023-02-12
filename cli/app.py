@@ -9,12 +9,28 @@ import os
 import sys
 from grammer import * 
 
+from colorama import init, Fore, Back, Style
+init(autoreset=True)
+
 from pyarabic.araby import strip_tashkeel
+
 
 
 # =====================================================================================
 # ======================== functions ================================================== 
 # =====================================================================================
+
+def ElementColor(e):
+    return Fore.BLUE + e + Fore.RESET
+
+def IndexColor(e):
+    return Fore.MAGENTA + str(e) + Fore.RESET    
+
+def SucssColor(self):
+        return Fore.GREEN  + Style.BRIGHT + self + Fore.RESET + Style.RESET_ALL 
+
+def FailColor(self):
+        return Fore.RED + Style.BRIGHT + self  +Fore.RESET + Style.RESET_ALL
 
 
 def shkl(text):
@@ -108,8 +124,8 @@ def checkTshkel(text):
     error=[]
     for i in range(len(mshktxt)):
         if result[i] != mshktxt[i]:
-            error.append(mshktxt[i]+ " تشكيل خاطئ")
-            error.append(" التشكيل الصحيح هو " + result[i])
+            error.append(FailColor(mshktxt[i]) + " تشكيل خاطئ")
+            error.append(" ,التشكيل الصحيح هو " + SucssColor(result[i]))
             error.append("\n")
     if len(error) == 0:
         error.append("لا يوجد خطأ")
@@ -177,7 +193,7 @@ while loop == True:
                     print("tokens: {}".format(token))            
                     print("result: \n  {}".format(r.join(result)))
     
-            print("تشكيل نص اخر؟")
+            print("عملية اخرى؟")
             print("(1) نعم")
             print("(2) لا")
             inL = input("ادخل رقم الخيار \n")
@@ -196,3 +212,10 @@ while loop == True:
                     checkTshkel(scanner)    
             except Exception as ex:
                 print(ex)
+
+            print("عملية اخرى؟")
+            print("(1) نعم")
+            print("(2) لا")
+            inL = input("ادخل رقم الخيار \n")
+            if inL == "2":
+                loop = False    
